@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/15 18:33:36 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 16:49:11 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
 	liste = s->list;
 	while (liste)
 	{
-		(ft_intersect(ray, (t_sphere*)liste->objet, &t, &color));
+		(ft_intersect(ray, liste, &t, &color));
 		liste = liste->next;
 	}
 	e->addr[j * 4 + i * 4 * s->cam->xres + 2] = color / (256 * 256);

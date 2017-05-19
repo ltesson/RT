@@ -6,7 +6,7 @@
 #    By: ltesson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 15:46:25 by ltesson           #+#    #+#              #
-#    Updated: 2017/05/15 18:06:04 by ltesson          ###   ########.fr        #
+#    Updated: 2017/05/19 17:22:14 by ltesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = rt
 FLAGS = -Wall -Wextra -Werror
 
 SRC = maintest.c ft_initcam.c ft_vecteur.c ft_mlx.c ft_drawscene.c \
-	  ft_intersect.c ft_additem.c ft_addsphere.c ft_error.c
+	  ft_intersect.c ft_additem.c ft_addsphere.c ft_error.c ft_move.c \
+	  ft_morevecteur.c ft_intersphere.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,11 +6,12 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:10 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/09 18:30:47 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/16 16:44:05 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+#include <stdio.h>
 #include <mlx.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -29,10 +30,15 @@ static int	expose_hook(t_env *e)
 	return (0);
 }
 
-static int	key_hook(int keycode)
+static int	key_hook(int keycode, t_env *e)
 {
 	if (keycode == 53)
 		exit(0);
+	if (ft_move(keycode, e->s->cam))
+	{
+		ft_initcam(e->s->cam);
+		expose_hook(e);
+	}
 	return (0);
 }
 

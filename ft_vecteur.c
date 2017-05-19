@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 18:40:17 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/13 16:24:26 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 17:53:30 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,13 @@ t_vecteur	ft_normalizevecteur(t_vecteur v)
 	double	norme;
 
 	norme = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-	v.x /= norme;
-	v.y /= norme;
-	v.z /= norme;
+	if (norme != 0)
+	{
+		norme = 1 / norme;
+		v.x *= norme;
+		v.y *= norme;
+		v.z *= norme;
+	}
 	return (v);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 17:04:17 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 16:37:26 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 19:21:05 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main()
 	s->cam->yres = 480;
 	s->cam->pos.x = -200;
 	s->cam->pos.y = 0;
-	s->cam->pos.z = 0;
+	s->cam->pos.z = 50;
 	s->cam->vec.x = 1;
 	s->cam->vec.y = 0;
 	s->cam->vec.z = 0;

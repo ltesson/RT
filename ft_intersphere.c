@@ -6,13 +6,13 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 17:14:32 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 17:14:39 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 19:00:49 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int		ft_intersphere(t_rayon ray, t_sphere *sphere, double *t, int *color)
+void	ft_intersphere(t_rayon *ray, t_sphere *sphere)
 {
 //Le rayon part du point O (camera), part dans la direction D,
 //et traverse une distance t inconnue avant de traverser la sphere au point I
@@ -36,23 +36,22 @@ int		ft_intersphere(t_rayon ray, t_sphere *sphere, double *t, int *color)
 	double	t1;
 	double	t2;
 
-	p.x = ray.pos.x - sphere->pos.x;
-	p.y = ray.pos.y - sphere->pos.y;
-	p.z = ray.pos.z - sphere->pos.z;
-	a = ray.vec.x * ray.vec.x + ray.vec.y * ray.vec.y + ray.vec.z * ray.vec.z;
-	b = 2 * (ray.vec.x * p.x + ray.vec.y * p.y + ray.vec.z * p.z);
+	p.x = ray->pos.x - sphere->pos.x;
+	p.y = ray->pos.y - sphere->pos.y;
+	p.z = ray->pos.z - sphere->pos.z;
+	a = ray->vec.x * ray->vec.x + ray->vec.y * ray->vec.y + ray->vec.z * ray->vec.z;
+	b = 2 * (ray->vec.x * p.x + ray->vec.y * p.y + ray->vec.z * p.z);
 	c = p.x * p.x + p.y * p.y + p.z * p.z - sphere->r * sphere->r;
 	det = b * b - 4 * a * c;
 	if (det < 0)
-		return (0);
+		return;
 	t1 = (-b + sqrt(det)) / (2 * a);
 	t2 = (-b - sqrt(det)) / (2 * a);
 	if (t1 > 0 && t2 > 0)
-		*t = fmin(fmin(t1, t2), *t);
+		ray->t = fmin(fmin(t1, t2), ray->t);
 	else if (t1 <= 0 && t2 <= 0)
-		return (0);
-	*t = fmin(fmax(t1, t2), *t);
-	if (*t == t1 || *t == t2)
-		*color = sphere->color;
-	return (1);
+		return;
+	ray->t = fmin(fmax(t1, t2), ray->t);
+	if (ray->t == t1 || ray->t == t2)
+		ray->color = sphere->color;
 }

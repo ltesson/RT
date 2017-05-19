@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 16:49:11 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 18:47:42 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,20 @@ t_rayon		ft_primray(t_camera *c, double i, double j)
 void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
 {
 	t_rayon		ray;
-	double		t;
 	t_listobj	*liste;
-	int			color;
 
-	color = 0;
 	ray = ft_primray(s->cam, i, j);
-	t = INFINITY;
+	ray.color = 0;
+	ray.t = INFINITY;
 	liste = s->list;
 	while (liste)
 	{
-		(ft_intersect(ray, liste, &t, &color));
+		ft_intersect(&ray, liste);
 		liste = liste->next;
 	}
-	e->addr[j * 4 + i * 4 * s->cam->xres + 2] = color / (256 * 256);
-	e->addr[j * 4 + i * 4 * s->cam->xres + 1] = (color / 256) % 256;
-	e->addr[j * 4 + i * 4 * s->cam->xres] = color % 256;
+	e->addr[j * 4 + i * 4 * s->cam->xres + 2] = ray.color / (256 * 256);
+	e->addr[j * 4 + i * 4 * s->cam->xres + 1] = (ray.color / 256) % 256;
+	e->addr[j * 4 + i * 4 * s->cam->xres] = ray.color % 256;
 }
 
 void	ft_drawscene(t_scene *s, t_env *e)

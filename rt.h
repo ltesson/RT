@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 17:21:05 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 19:03:28 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 # include <math.h>
 # include <mlx.h>
 # define SPHERE 1
+# define PLAN 2
 # define RED 13511728
 # define BLUE 3093151
 # define GREEN 3127874
+# define DARKBLUE 1645713
 
 typedef struct			s_listobj
 {
@@ -44,6 +46,8 @@ typedef struct	s_rayon
 {
 	t_point		pos;
 	t_vecteur	vec;
+	double		t;
+	int			color;
 }				t_rayon;
 
 typedef struct	s_camera
@@ -77,6 +81,8 @@ typedef struct	s_plan
 	double		a;
 	double		b;
 	double		c;
+	double		d;
+	int			color;
 }				t_plan;
 
 typedef struct	s_cylindre
@@ -122,12 +128,14 @@ t_vecteur		ft_getvecteur(t_point a, t_point b);
 t_vecteur		ft_multvecteur(t_vecteur v, double t);
 t_vecteur		ft_addvecteur(t_vecteur v, t_vecteur w);
 t_point			ft_translation(t_point p, t_vecteur v);
-int				ft_intersect(t_rayon ray, t_listobj *liste, double *t, int *color);
-int				ft_intersphere(t_rayon ray, t_sphere *sphere, double *t, int *color);
+t_vecteur		ft_rotatevecteur(t_vecteur v, double a);
+void			ft_intersect(t_rayon *ray, t_listobj *liste);
+void			ft_intersphere(t_rayon *ray, t_sphere *sphere);
+void			ft_interplan(t_rayon *ray, t_plan *plan);
 int				ft_error(int);
 void			ft_additem(t_scene *s);
 void			ft_addsphere(t_scene *s, t_point pos, double r, int color);
+void			ft_addplan(t_scene *s, t_point pos, double r, int color);
 int				ft_move(int keycode, t_camera *cam);
-t_vecteur		ft_rotatevecteur(t_vecteur v, double a);
 
 #endif

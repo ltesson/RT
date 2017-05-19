@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:30:00 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/16 17:23:11 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/19 19:20:32 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ void	ft_additem(t_scene *s)
 	r = 40;
 	color = RED;
 	ft_addsphere(s, pos, r, color);
+	if (s->error)
+		return;
+	pos.x = 0;
+	pos.y = 0;
+	pos.z = 1;
+	r = -15;
+	color = DARKBLUE;
+	ft_addplan(s, pos, r, color);
 }

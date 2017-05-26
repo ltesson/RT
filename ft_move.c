@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 16:18:09 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/16 16:59:44 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/24 18:58:39 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int		ft_move(int keycode, t_camera *cam)
 		cam->pos = ft_translation(cam->pos, ft_multvecteur(cam->rightvec, 10));
 	else if (keycode == 91)
 		cam->pos = ft_translation(cam->pos, ft_multvecteur(cam->vec, 10));
-	else if (keycode == 123)
-		cam->vec = ft_rotatevecteur(cam->vec, (double)(-1) / 32);
-	else if (keycode == 124)
-		cam->vec = ft_rotatevecteur(cam->vec, (double)(1) / 32);
+//	else if (keycode == 123)
+//		cam->vec = ft_rotatevecteurz(cam->vec, (double)(-1) / 32);
+//	else if (keycode == 124)
+//		cam->vec = ft_rotatevecteurz(cam->vec, (double)(1) / 32);
 	else
 		return (0);
 	return (1);

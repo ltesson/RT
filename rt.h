@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/23 16:24:30 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/30 16:25:17 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define SPOT 0
 # define SPHERE 1
 # define PLAN 2
+# define CYLINDRE 3
+# define CONE 4
 # define VCYLINDRE 103
 # define RED 13511728
 # define BLUE 3093151
@@ -96,11 +98,21 @@ typedef struct	s_vcylindre
 
 typedef struct	s_cylindre
 {
+	t_point		pos;
+	double		a;
+	double		b;
+	double		r;
+	int			color;
+}				t_cylindre;
+
+typedef struct	s_cone
+{
+	t_point		pos;
 	double		a;
 	double		b;
 	double		c;
-	double		r;
-}				t_cylindre;
+	int			color;
+}				t_cone;
 
 typedef struct	s_spot
 {
@@ -133,16 +145,21 @@ t_vecteur		ft_getvecteur(t_point a, t_point b);
 t_vecteur		ft_multvecteur(t_vecteur v, double t);
 t_vecteur		ft_addvecteur(t_vecteur v, t_vecteur w);
 t_point			ft_translation(t_point p, t_vecteur v);
-t_vecteur		ft_rotatevecteur(t_vecteur v, double a);
+t_vecteur		ft_rotatevecteur(t_vecteur v, double x, double y, double z);
+t_vecteur		ft_rotatearound(t_vecteur v, t_vecteur a, double t);
 void			ft_intersect(t_rayon *ray, t_listobj *liste);
 void			ft_intersphere(t_rayon *ray, t_sphere *sphere);
 void			ft_interplan(t_rayon *ray, t_plan *plan);
 void			ft_intervcylindre(t_rayon *ray, t_vcylindre *vcylindre);
+void			ft_intercylindre(t_rayon *ray, t_cylindre *cylindre);
+void			ft_intercone(t_rayon *ray, t_cone *cone);
 int				ft_error(int);
 void			ft_scene01(t_scene *s);
 void			ft_addsphere(t_scene *s, t_point pos, double r, int color);
 void			ft_addplan(t_scene *s, t_point pos, double r, int color);
 void			ft_addvcylindre(t_scene *s, t_point pos, double r, int color);
+void			ft_addcylindre(t_scene *s, t_point pos, t_point t, int color);
+void			ft_addcone(t_scene *s, t_point pos, t_point t, int color);
 int				ft_move(int keycode, t_camera *cam);
 
 #endif

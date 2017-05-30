@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 14:44:07 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/24 18:59:20 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/26 17:44:32 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	ft_initcam(t_camera *cam)
 	cam->xindent = cam->viewwidth / cam->xres;
 	cam->yindent = cam->viewheight / -cam->yres;
 	cam->firstpix = ft_translation(cam->pos, ft_addvecteur(ft_multvecteur(cam->vec, cam->viewdist), ft_addvecteur(ft_multvecteur(cam->rightvec, cam->viewwidth / -2), ft_multvecteur(cam->upvec, cam->viewheight / 2))));
-	printf("vecteur = {%f, %f, %f}\nrightvec = {%f, %f, %f}\nupvec = {%f, %f, %f}\n",
-			cam->vec.x, cam->vec.y, cam->vec.z,
-			cam->rightvec.x, cam->rightvec.y, cam->rightvec.z,
-			cam->upvec.x, cam->upvec.y, cam->upvec.z);
+//	printf("vecteur = {%f, %f, %f}\nrightvec = {%f, %f, %f}\nupvec = {%f, %f, %f}\n",
+//			cam->vec.x, cam->vec.y, cam->vec.z,
+//			cam->rightvec.x, cam->rightvec.y, cam->rightvec.z,
+//			cam->upvec.x, cam->upvec.y, cam->upvec.z);
 //	printf("xindent = %f\nyindent = %f\nfirstpix = {%f, %f, %f}\n",
 //			cam->xindent, cam->yindent,
 //			cam->firstpix.x, cam->firstpix.y, cam->firstpix.z);

@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:36:58 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 16:31:49 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/23 16:11:40 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_scene01(t_scene *s)
 {
 	t_point		pos;
-	t_point		t;
 	double		r;
 	int			color;
 
@@ -43,24 +42,12 @@ void	ft_scene01(t_scene *s)
 	ft_addplan(s, pos, r, color);
 	if (s->error)
 		return;
-	pos.x = 10;
-	pos.y = -30;
-	pos.z = -20;
-	t.x = 1;
-	t.y = 0;
-	t.z = 0.4;
+	pos.x = 0;
+	pos.y = 0;
+	pos.z = -40;
+	r = 8;
 	color = RED;
-	ft_addcone(s, pos, t, color);
-	if (s->error)
-		return;
-	pos.x = 5;
-	pos.y = 30;
-	pos.z = -30;
-	t.x = -1;
-	t.y = 0;
-	t.z = 5;
-	color = GREEN;
-	ft_addcylindre(s, pos, t, color);
+	ft_addsphere(s, pos, r, color);
 	if (s->error)
 		return;
 	pos.x = 50;

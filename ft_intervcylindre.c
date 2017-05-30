@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 14:52:20 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/23 15:26:54 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/30 14:49:43 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	ft_intervcylindre(t_rayon *ray, t_vcylindre *vcylindre)
 		ray->t = fmin(fmin(t1, t2), ray->t);
 	else if (t1 <= 0 && t2 <= 0)
 		return;
-	ray->t = fmin(fmax(t1, t2), ray->t);
+	else
+		ray->t = fmin(fmax(t1, t2), ray->t);
 	if (ray->t == t1 || ray->t == t2)
 		ray->color = vcylindre->color;
 }

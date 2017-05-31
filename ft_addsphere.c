@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 15:53:27 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/15 18:10:20 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:58:39 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_addsphere(t_scene *s, t_point pos, double r, int color)
 	if (sphere == NULL || newobj == NULL)
 	{
 		s->error = 1;
-		return;
+		return ;
 	}
 	sphere->pos = pos;
 	sphere->r = r;

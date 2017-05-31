@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:36:58 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 16:34:29 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:53:02 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	ft_scene01(t_scene *s)
 
 	pos.x = -200;
 	pos.y = -300;
-	pos.z = -50;
+	pos.z = 20;
 	r = 0.9;
 	ft_addspot(s, pos, r);
 	if (s->error)
 		return;
 	pos.x = -200;
 	pos.y = 300;
-	pos.z = -50;
+	pos.z = 20;
 	r = 0.9;
 	ft_addspot(s, pos, r);
 	if (s->error)

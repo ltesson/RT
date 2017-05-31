@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 16:20:10 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 16:21:38 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:57:39 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_addcone(t_scene *s, t_point pos, t_point t, int color)
 {
-	t_cone	*cone;
+	t_cone		*cone;
 	t_listobj	*newobj;
 
 	cone = (t_cone*)malloc(sizeof(t_cone));
@@ -23,7 +23,7 @@ void	ft_addcone(t_scene *s, t_point pos, t_point t, int color)
 	if (cone == NULL || newobj == NULL)
 	{
 		s->error = 1;
-		return;
+		return ;
 	}
 	cone->pos = pos;
 	cone->a = t.x;

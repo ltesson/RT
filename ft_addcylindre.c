@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:58:22 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 15:00:07 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:58:00 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_addcylindre(t_scene *s, t_point pos, t_point t, int color)
 	if (cylindre == NULL || newobj == NULL)
 	{
 		s->error = 1;
-		return;
+		return ;
 	}
 	cylindre->pos = pos;
 	cylindre->a = t.x;

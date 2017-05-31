@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 19:33:24 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 19:36:39 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 17:45:42 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_addspot(t_scene *s, t_point pos, double r)
 	if (spot == NULL)
 	{
 		s->error = 1;
-		return;
+		return ;
 	}
 	spot->pos = pos;
 	spot->power = r;

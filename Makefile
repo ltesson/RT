@@ -6,7 +6,7 @@
 #    By: ltesson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 15:46:25 by ltesson           #+#    #+#              #
-#    Updated: 2017/05/31 16:24:09 by ltesson          ###   ########.fr        #
+#    Updated: 2017/05/31 18:19:38 by ltesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = maintest.c ft_initcam.c ft_vecteur.c ft_mlx.c ft_drawscene.c \
 	  ft_intercylindre.c ft_addcylindre.c ft_intercone.c ft_addcone.c \
 	  ft_produitscalaire.c ft_getnormevecteur.c ft_getnormale.c \
 	  ft_getnormplan.c ft_getnormcyl.c ft_getnormcone.c ft_getlight.c \
-	  ft_addspot.c ft_intercheck.c\
+	  ft_addspot.c ft_intercheck.c ft_distance.c \
 
 OBJ = $(SRC:.c=.o)
 

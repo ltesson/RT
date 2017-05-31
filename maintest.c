@@ -6,14 +6,14 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 17:04:17 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 16:15:17 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 18:24:16 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include <stdlib.h>
 
-int		main()
+int		main(void)
 {
 	t_scene		*s;
 

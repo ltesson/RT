@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:56:02 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 19:00:11 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:58:35 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_addplan(t_scene *s, t_point pos, double r, int color)
 	if (plan == NULL || newobj == NULL)
 	{
 		s->error = 1;
-		return;
+		return ;
 	}
 	plan->a = pos.x;
 	plan->b = pos.y;

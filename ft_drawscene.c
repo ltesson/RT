@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 15:59:22 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 18:45:25 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
 		liste = liste->next;
 	}
 	if (ray.objet == NULL)
-		return;
+		return ;
 	if (ray.objet->type == SPHERE)
 		ray.color = ((t_sphere*)ray.objet->objet)->color;
 	if (ray.objet->type == PLAN)
@@ -53,10 +53,6 @@ void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
 		ray.color = ((t_cylindre*)ray.objet->objet)->color;
 	if (ray.objet->type == CONE)
 		ray.color = ((t_cone*)ray.objet->objet)->color;
-//	ray.power = ft_produitscalaire(ray.vec, s->cam->vec);
-//	ray.power *= ray.power * ray.power * ray.power * ray.power;
-//	printf("%f\n", ray.power);
-//	ray.power = 1;
 	ft_getlight(s, &ray);
 	e->addr[j * 4 + i * 4 * s->cam->xres + 2] = ray.power * (ray.color / (256 * 256));
 	e->addr[j * 4 + i * 4 * s->cam->xres + 1] = ray.power * ((ray.color / 256) % 256);

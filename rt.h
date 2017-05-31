@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 16:25:17 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 14:29:45 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define PLAN 2
 # define CYLINDRE 3
 # define CONE 4
-# define VCYLINDRE 103
 # define RED 13511728
 # define BLUE 3093151
 # define GREEN 3127874
@@ -89,13 +88,6 @@ typedef struct	s_plan
 	int			color;
 }				t_plan;
 
-typedef struct	s_vcylindre
-{
-	t_point		pos;
-	double		r;
-	int			color;
-}				t_vcylindre;
-
 typedef struct	s_cylindre
 {
 	t_point		pos;
@@ -150,14 +142,12 @@ t_vecteur		ft_rotatearound(t_vecteur v, t_vecteur a, double t);
 void			ft_intersect(t_rayon *ray, t_listobj *liste);
 void			ft_intersphere(t_rayon *ray, t_sphere *sphere);
 void			ft_interplan(t_rayon *ray, t_plan *plan);
-void			ft_intervcylindre(t_rayon *ray, t_vcylindre *vcylindre);
 void			ft_intercylindre(t_rayon *ray, t_cylindre *cylindre);
 void			ft_intercone(t_rayon *ray, t_cone *cone);
 int				ft_error(int);
 void			ft_scene01(t_scene *s);
 void			ft_addsphere(t_scene *s, t_point pos, double r, int color);
 void			ft_addplan(t_scene *s, t_point pos, double r, int color);
-void			ft_addvcylindre(t_scene *s, t_point pos, double r, int color);
 void			ft_addcylindre(t_scene *s, t_point pos, t_point t, int color);
 void			ft_addcone(t_scene *s, t_point pos, t_point t, int color);
 int				ft_move(int keycode, t_camera *cam);

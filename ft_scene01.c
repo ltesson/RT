@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:36:58 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 16:31:49 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 14:31:10 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,31 +130,39 @@ void	ft_scene01(t_scene *s)
 	pos.x = 50;
 	pos.y = 50;
 	pos.z = 0;
-	r = 10;
+	t.x = 0;
+	t.y = 0;
+	t.z = 10;
 	color = GREY;
-	ft_addvcylindre(s, pos, r, color);
+	ft_addcylindre(s, pos, t, color);
 	if (s->error)
 		return;
 	pos.x = -50;
 	pos.y = 50;
 	pos.z = 0;
-	r = 10;
+	t.x = 0;
+	t.y = 0;
+	t.z = 10;
 	color = GREY;
-	ft_addvcylindre(s, pos, r, color);
+	ft_addcylindre(s, pos, t, color);
 	if (s->error)
 		return;
 	pos.x = 50;
 	pos.y = -50;
 	pos.z = 0;
-	r = 10;
+	t.x = 0;
+	t.y = 0;
+	t.z = 10;
 	color = GREY;
-	ft_addvcylindre(s, pos, r, color);
+	ft_addcylindre(s, pos, t, color);
 	if (s->error)
 		return;
 	pos.x = -50;
 	pos.y = -50;
 	pos.z = 0;
-	r = 10;
+	t.x = 0;
+	t.y = 0;
+	t.z = 10;
 	color = GREY;
-	ft_addvcylindre(s, pos, r, color);
+	ft_addcylindre(s, pos, t, color);
 }

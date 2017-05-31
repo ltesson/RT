@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 17:04:17 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 15:03:48 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:15:17 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		main()
 	s->cam->viewheight = 0.9;
 	ft_initcam(s->cam);
 	s->list = NULL;
+	s->spot = NULL;
 	s->error = 0;
 	ft_scene01(s);
 	if (s->error)

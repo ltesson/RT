@@ -6,13 +6,13 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:15:25 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 15:02:14 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:29:01 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_intercylindre(t_rayon *ray, t_cylindre *cylindre)
+int		ft_intercylindre(t_rayon *ray, t_cylindre *cylindre)
 {
 	t_rayon		ray2;
 	t_vecteur	v;
@@ -44,15 +44,16 @@ void	ft_intercylindre(t_rayon *ray, t_cylindre *cylindre)
 	c = v.x * v.x + v.y * v.y - cylindre->r * cylindre->r;
 	det = b * b - 4 * a * c;
 	if (det < 0)
-		return;
+		return (0);
 	t1 = (-b + sqrt(det)) / (2 * a);
 	t2 = (-b - sqrt(det)) / (2 * a);
-	if (t1 < 0 && t2 < 0)
-		return;
-	else if (t1 > 0 && t2 > 0)
+	if (t1 < 0.01 && t2 < 0.01)
+		return (0);
+	else if (t1 >= 0.01 && t2 >= 0.01)
 		ray->t = fmin(fmin(t1, t2), ray->t);
 	else
 		ray->t = fmin(fmax(t1, t2), ray->t);
 	if (ray->t == t1 || ray->t == t2)
-		ray->color = cylindre->color;
+		return (1);
+	return (0);
 }

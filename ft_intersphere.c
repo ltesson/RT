@@ -6,13 +6,13 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 17:14:32 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 19:00:49 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:29:43 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_intersphere(t_rayon *ray, t_sphere *sphere)
+int		ft_intersphere(t_rayon *ray, t_sphere *sphere)
 {
 //Le rayon part du point O (camera), part dans la direction D,
 //et traverse une distance t inconnue avant de traverser la sphere au point I
@@ -44,14 +44,15 @@ void	ft_intersphere(t_rayon *ray, t_sphere *sphere)
 	c = p.x * p.x + p.y * p.y + p.z * p.z - sphere->r * sphere->r;
 	det = b * b - 4 * a * c;
 	if (det < 0)
-		return;
+		return (0);
 	t1 = (-b + sqrt(det)) / (2 * a);
 	t2 = (-b - sqrt(det)) / (2 * a);
-	if (t1 > 0 && t2 > 0)
+	if (t1 >= 0.01 && t2 >= 0.01)
 		ray->t = fmin(fmin(t1, t2), ray->t);
-	else if (t1 <= 0 && t2 <= 0)
-		return;
+	else if (t1 < 0.01 && t2 < 0.01)
+		return (0);
 	ray->t = fmin(fmax(t1, t2), ray->t);
 	if (ray->t == t1 || ray->t == t2)
-		ray->color = sphere->color;
+		return (1);
+	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 18:06:35 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/19 19:04:42 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:29:19 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_interplan(t_rayon *ray, t_plan *plan)
+int		ft_interplan(t_rayon *ray, t_plan *plan)
 {
 //Je n'arrive pas a visualiser un plan par rapport a son equation, mais on va essayer quand meme
 //L'equation d'un plan est de la forme Ax + By + Cz + D = 0
@@ -35,9 +35,10 @@ void	ft_interplan(t_rayon *ray, t_plan *plan)
 	t1 = -(plan->a * ray->pos.x + plan->b * ray->pos.y + plan->c * ray->pos.z 
 			+ plan->d)
 		/ (plan->a * ray->vec.x + plan->b * ray->vec.y + plan->c * ray->vec.z);
-	if (t1 > 0 && t1 < ray->t)
+	if (t1 >= 0.01 && t1 < ray->t)
 	{
 		ray->t = t1;
-		ray->color = plan->color;
+		return (1);
 	}
+	return (0);
 }

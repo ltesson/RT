@@ -6,13 +6,13 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 15:23:33 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/30 16:18:54 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/05/31 16:28:46 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	ft_intercone(t_rayon *ray, t_cone *cone)
+int		ft_intercone(t_rayon *ray, t_cone *cone)
 {
 //C'est comme le cylindre, mais le rayon depend de plusieurs parametres, dont t
 //Le rayon depend de la difference de hauteur entre le point et le centre du cone
@@ -43,15 +43,16 @@ void	ft_intercone(t_rayon *ray, t_cone *cone)
 	c = v.x * v.x + v.y * v.y - cone->c * cone->c * v.z * v.z;
 	det = b * b - 4 * a * c;
 	if (det < 0)
-		return;
+		return (0);
 	t1 = (-b + sqrt(det)) / (2 * a);
 	t2 = (-b - sqrt(det)) / (2 * a);
-	if (t1 < 0 && t2 < 0)
-		return;
-	else if (t1 > 0 && t2 > 0)
+	if (t1 < 0.01 && t2 < 0.01)
+		return (0);
+	else if (t1 >= 0.01 && t2 >= 0.01)
 		ray->t = fmin(fmin(t1, t2), ray->t);
 	else
 		ray->t = fmin(fmax(t1, t2), ray->t);
 	if (ray->t == t1 || ray->t == t2)
-		ray->color = cone->color;
+		return (1);
+	return (0);
 }

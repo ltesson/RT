@@ -6,14 +6,14 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 18:19:18 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/06 15:13:56 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 # include <math.h>
-# include <mlx.h>
+# include "minilibx/mlx.h"
 # define SPOT 0
 # define SPHERE 1
 # define PLAN 2

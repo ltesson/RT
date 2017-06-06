@@ -6,13 +6,12 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:10 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/16 16:44:05 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/06 15:14:12 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include <stdio.h>
-#include <mlx.h>
 #include <stdlib.h>
 #include <unistd.h>
 

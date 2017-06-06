@@ -6,12 +6,11 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 16:18:09 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/26 17:49:07 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/06 15:14:21 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include <mlx.h>
 
 int		ft_move(int keycode, t_camera *cam)
 {

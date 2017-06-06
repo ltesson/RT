@@ -6,7 +6,7 @@
 #    By: ltesson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 15:46:25 by ltesson           #+#    #+#              #
-#    Updated: 2017/05/31 18:19:38 by ltesson          ###   ########.fr        #
+#    Updated: 2017/06/06 15:26:01 by ltesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,13 @@ all: $(NAME)
 
 $(NAME):
 	make -C libft/ all
+	make -C minilibx/ all
 	gcc $(FLAGS) -c $(SRC)
-	gcc -o $(NAME) $(OBJ) -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
+	gcc -o $(NAME) $(OBJ) -L libft/ -lft -L minilibx/ -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	make -C libft/ clean
+	make -C minilibx/ clean
 	rm -f $(OBJ)
 	
 fclean: clean

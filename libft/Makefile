@@ -6,7 +6,7 @@
 #    By: ltesson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 15:46:25 by ltesson           #+#    #+#              #
-#    Updated: 2016/01/06 18:50:20 by ltesson          ###   ########.fr        #
+#    Updated: 2017/06/08 19:37:55 by ltesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC = ft_atoi.c \
 	ft_putnbr_fd.c \
 	ft_putstr.c \
 	ft_putstr_fd.c \
+	ft_strcasecmp.c \
 	ft_strcat.c \
 	ft_strchr.c \
 	ft_strclr.c \
@@ -102,6 +103,7 @@ OBJ = ft_atoi.o \
 	ft_putnbr_fd.o \
 	ft_putstr.o \
 	ft_putstr_fd.o \
+	ft_strcasecmp.o \
 	ft_strcat.o \
 	ft_strchr.o \
 	ft_strclr.o \

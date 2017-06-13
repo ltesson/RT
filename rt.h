@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/06 15:13:56 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/08 18:43:33 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ typedef struct			s_spot
 
 typedef struct			s_scene
 {
+	char				*name;
 	t_camera			*cam;
 	t_listobj			*list;
 	t_spot				*spot;

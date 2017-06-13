@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 18:45:25 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/08 17:39:39 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ t_rayon	ft_primray(t_camera *c, double i, double j)
 	ray.pos = c->pos;
 	ray.objet = NULL;
 	return (ray);
+}
+
+void	ft_putcolor(t_env *e, int i, int j, t_rayon ray)
+{
+	if (ray.power > 1)
+		ray.power = 1;
+	if (ray.power < 0.3)
+		ray.power = 0.3;
+	e->addr[j * 4 + i * 4 * e->s->cam->xres + 2] =
+		ray.power * (ray.color / (256 * 256));
+	e->addr[j * 4 + i * 4 * e->s->cam->xres + 1] =
+		ray.power * ((ray.color / 256) % 256);
+	e->addr[j * 4 + i * 4 * e->s->cam->xres] =
+		ray.power * (ray.color % 256);
 }
 
 void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
@@ -54,9 +68,7 @@ void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)
 	if (ray.objet->type == CONE)
 		ray.color = ((t_cone*)ray.objet->objet)->color;
 	ft_getlight(s, &ray);
-	e->addr[j * 4 + i * 4 * s->cam->xres + 2] = ray.power * (ray.color / (256 * 256));
-	e->addr[j * 4 + i * 4 * s->cam->xres + 1] = ray.power * ((ray.color / 256) % 256);
-	e->addr[j * 4 + i * 4 * s->cam->xres] = ray.power * (ray.color % 256);
+	ft_putcolor(e, i, j, ray);
 }
 
 void	ft_drawscene(t_scene *s, t_env *e)

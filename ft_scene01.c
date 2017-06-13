@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:36:58 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/06 15:01:48 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/08 18:11:35 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_scene01(t_scene *s)
 	if (s->error)
 		return ;
 	pos.x = 0;
-	pos.x = 0;
 	pos.y = 0;
 	pos.z = 1;
 	r = 60;
@@ -51,8 +50,8 @@ void	ft_scene01(t_scene *s)
 	if (s->error)
 		return ;
 	pos.x = 1;
-	pos.y = 0;
-	pos.z = 0;
+	pos.y = 1;
+	pos.z = 1;
 	r = -120;
 	color = BLUE;
 	ft_addplan(s, pos, r, color);

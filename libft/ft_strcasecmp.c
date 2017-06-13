@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strcasecmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/15 18:04:50 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 18:25:23 by ltesson          ###   ########.fr       */
+/*   Created: 2017/06/08 19:36:46 by ltesson           #+#    #+#             */
+/*   Updated: 2017/06/08 19:37:14 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int		ft_error(int e)
+int		ft_strcasecmp(char const *s1, char const *s2)
 {
-	if (e == 1)
-		ft_putendl("malloc error");
-	if (e == 2)
-		ft_putendl("usage : ./rt FILEPATH");
-	if (e == 3)
-		ft_putendl("File not found");
-	return (0);
+	if ((*s1 == '\0') && (*s2 == '\0'))
+		return (0);
+	if (ft_tolower(*s1) == ft_tolower(*s2))
+		return (ft_strcasecmp(s1 + 1, s2 + 1));
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }

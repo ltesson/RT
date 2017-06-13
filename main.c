@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/15 18:04:50 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 18:25:23 by ltesson          ###   ########.fr       */
+/*   Created: 2017/06/08 18:21:07 by ltesson           #+#    #+#             */
+/*   Updated: 2017/06/08 19:07:42 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include "libft/libft.h"
 
-int		ft_error(int e)
+int		main(int ac, char **av)
 {
-	if (e == 1)
-		ft_putendl("malloc error");
-	if (e == 2)
-		ft_putendl("usage : ./rt FILEPATH");
-	if (e == 3)
-		ft_putendl("File not found");
+	t_scene		*s;
+
+	if (ac < 2)
+		return (ft_error(2));
+	s = ft_initscene();
+	if (s == NULL || s->error = 1)
+		return (ft_error(1));
+	ft_readfile(av[1], s);
+	if (s->error)
+		return (ft_error(s->error));
+	ft_initcam(s->cam);
+	ft_mlx(s);
 	return (0);
 }

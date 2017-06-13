@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 16:12:19 by ltesson           #+#    #+#             */
-/*   Updated: 2016/01/06 18:38:59 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/08 19:38:19 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char				*ft_strchr(char const *s, int c);
 char				*ft_strrchr(char const *s, int c);
 char				*ft_strstr(char const *big, char const *little);
 char				*ft_strnstr(char const *big, char const *lit, size_t len);
+int					ft_strcasecmp(char const *s1, char const *s2);
 int					ft_strcmp(char const *s1, char const *s2);
 int					ft_strncmp(char const *s1, char const *s2, size_t n);
 int					ft_atoi(char const *str);

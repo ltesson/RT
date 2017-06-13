@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 17:59:26 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 17:02:45 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/08 17:23:07 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,4 @@ void	ft_getlight(t_scene *s, t_rayon *ray)
 		}
 		spot = spot->next;
 	}
-	if (ray->power > 1)
-		ray->power = 1;
 }

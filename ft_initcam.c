@@ -6,12 +6,11 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 14:44:07 by ltesson           #+#    #+#             */
-/*   Updated: 2017/05/31 18:37:46 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/15 17:29:19 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include <stdio.h>
 
 void	ft_getrightvec(t_camera *cam)
 {

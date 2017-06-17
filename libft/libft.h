@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 16:12:19 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 19:38:19 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/17 19:28:52 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,18 @@ char				*ft_strrchr(char const *s, int c);
 char				*ft_strstr(char const *big, char const *little);
 char				*ft_strnstr(char const *big, char const *lit, size_t len);
 int					ft_strcasecmp(char const *s1, char const *s2);
+int					ft_strncasecmp(char const *s1, char const *s2, size_t n);
 int					ft_strcmp(char const *s1, char const *s2);
 int					ft_strncmp(char const *s1, char const *s2, size_t n);
 int					ft_atoi(char const *str);
+double				ft_atof(char const *str);
+double				ft_pow(double a, int b);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+int					ft_isspace(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				*ft_memalloc(size_t size);
@@ -65,6 +69,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+void				ft_freesplit(char **split);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);

@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 18:43:33 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/17 19:10:24 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define DARKRED 5319981
 # define DARKGREEN 4805931
 # define GREY 8159104
+# define WHITE 16777215
 
 typedef struct			s_listobj
 {
@@ -134,9 +135,17 @@ typedef struct			s_env
 }						t_env;
 
 void					ft_readfile(t_scene *s, char *av);
+void					ft_readspot(t_scene *s, int fd, char *line, int *i);
+void					ft_readsphere(t_scene *s, int fd, char *line, int *i);
+void					ft_readplan(t_scene *s, int fd, char *line, int *i);
+void					ft_readcylindre(t_scene *s, int fd, char *line, int *i);
+void					ft_readcone(t_scene *s, int fd, char *line, int *i);
+void					ft_readcamera(t_scene *s, int fd, char *line, int *i);
+int						ft_readcolor(char *color);
 void					ft_mlx(t_scene *s);
 void					ft_drawscene(t_scene *s, t_env *e);
 void					ft_initcam(t_camera *cam);
+t_scene					*ft_initscene(void);
 t_vecteur				ft_normalizevecteur(t_vecteur v);
 t_vecteur				ft_getvecteur(t_point a, t_point b);
 t_vecteur				ft_multvecteur(t_vecteur v, double t);
@@ -155,7 +164,6 @@ int						ft_intercone(t_rayon *ray, t_cone *cone);
 int						ft_intercheck(t_rayon *ray, t_scene *s);
 int						ft_distance(double a, double b, double c, t_rayon *ray);
 int						ft_error(int e);
-void					ft_scene01(t_scene *s);
 void					ft_addsphere(t_scene *s, t_point pos, double r,
 						int color);
 void					ft_addplan(t_scene *s, t_point pos, double r,
@@ -164,6 +172,7 @@ void					ft_addcylindre(t_scene *s, t_point pos, t_point t,
 						int color);
 void					ft_addcone(t_scene *s, t_point pos, t_point t,
 						int color);
+void					ft_addlist(t_scene *s, void *objet, int type);
 void					ft_addspot(t_scene *s, t_point pos, double r);
 t_vecteur				ft_getnormale(t_point pos, t_listobj *liste);
 t_vecteur				ft_getnormplan(t_plan *plan);

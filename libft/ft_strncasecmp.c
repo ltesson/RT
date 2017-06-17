@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncasecmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/08 18:21:07 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 19:11:09 by ltesson          ###   ########.fr       */
+/*   Created: 2017/06/13 17:15:38 by ltesson           #+#    #+#             */
+/*   Updated: 2017/06/13 19:01:10 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_strncasecmp(char const *s1, char const *s2, size_t n)
 {
-	t_scene		*s;
-
-	if (ac < 2)
-		return (ft_error(2));
-	s = ft_initscene();
-	if (s == NULL || s->error == 1)
-		return (ft_error(1));
-	ft_readfile(s, av[1]);
-	if (s->error)
-		return (ft_error(s->error));
-	ft_initcam(s->cam);
-	ft_mlx(s);
-	return (0);
+	if (((*s1 == '\0') && (*s2 == '\0')) || n == 0)
+		return (0);
+	if (ft_tolower(*s1) == ft_tolower(*s2))
+		return (ft_strncasecmp(s1 + 1, s2 + 1, n - 1));
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_addlist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/08 18:21:07 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 19:11:09 by ltesson          ###   ########.fr       */
+/*   Created: 2017/06/13 18:31:31 by ltesson           #+#    #+#             */
+/*   Updated: 2017/06/13 19:17:51 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include <stdlib.h>
 
-int		main(int ac, char **av)
+void		ft_addlist(t_scene *s, void *objet, int type)
 {
-	t_scene		*s;
+	t_listobj	*new;
 
-	if (ac < 2)
-		return (ft_error(2));
-	s = ft_initscene();
-	if (s == NULL || s->error == 1)
-		return (ft_error(1));
-	ft_readfile(s, av[1]);
-	if (s->error)
-		return (ft_error(s->error));
-	ft_initcam(s->cam);
-	ft_mlx(s);
-	return (0);
+	new = (t_listobj*)malloc(sizeof(t_listobj));
+	if (new == NULL || objet == NULL)
+	{
+		s->error = 1;
+		return ;
+	}
+	new->objet = objet;
+	new->type = type;
+	new->next = s->list;
+	s->list = new;
 }

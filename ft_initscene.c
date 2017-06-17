@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:45:10 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 19:06:21 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/15 18:38:35 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,16 @@ t_scene		*ft_initscene(void)
 		s->error = 1;
 	else
 		s->error = 0;
+	s->cam->xres = 640;
+	s->cam->yres = 480;
+	s->cam->pos.x = -200;
+	s->cam->pos.y = 0;
+	s->cam->pos.z = 0;
+	s->cam->vec.x = 1;
+	s->cam->vec.y = 0;
+	s->cam->vec.z = 0;
+	s->cam->viewdist = 1;
+	s->cam->viewwidth = 1.2;
+	s->cam->viewheight = 0.9;
 	return (s);
 }

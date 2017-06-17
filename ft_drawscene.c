@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 17:39:39 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/15 17:42:45 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_putcolor(t_env *e, int i, int j, t_rayon ray)
 {
 	if (ray.power > 1)
 		ray.power = 1;
-	if (ray.power < 0.3)
-		ray.power = 0.3;
+	if (ray.power < 0.1)
+		ray.power = 0.1;
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 2] =
 		ray.power * (ray.color / (256 * 256));
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 1] =

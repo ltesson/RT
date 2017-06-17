@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readspot.c                                      :+:      :+:    :+:   */
+/*   ft_readsphere.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/08 19:50:03 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/15 17:05:41 by ltesson          ###   ########.fr       */
+/*   Created: 2017/06/13 18:16:43 by ltesson           #+#    #+#             */
+/*   Updated: 2017/06/15 17:21:47 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-void	ft_spotdata(t_spot *spot, char *line)
+void	ft_spheredata(t_sphere *sphere, char *line)
 {
 	char	**split;
 
@@ -24,37 +24,36 @@ void	ft_spotdata(t_spot *spot, char *line)
 	if (split[1] != NULL)
 	{
 		if (ft_strcasecmp("x", split[0]) == 0)
-			spot->pos.x = atof(split[1]);
+			sphere->pos.x = ft_atof(split[1]);
 		if (ft_strcasecmp("y", split[0]) == 0)
-			spot->pos.y = atof(split[1]);
+			sphere->pos.y = ft_atof(split[1]);
 		if (ft_strcasecmp("z", split[0]) == 0)
-			spot->pos.z = atof(split[1]);
-		if (ft_strcasecmp("power", split[0]) == 0)
-			spot->power = atof(split[1]);
+			sphere->pos.z = ft_atof(split[1]);
+		if (ft_strcasecmp("r", split[0]) == 0)
+			sphere->r = ft_atof(split[1]);
+		if (ft_strcasecmp("color", split[0]) == 0)
+			sphere->color = ft_readcolor(split[1]);
 	}
 	ft_freesplit(split);
 }
 
-void	ft_readspot(t_scene *s, int fd, char *line, int *i)
+void	ft_readsphere(t_scene *s, int fd, char *line, int *i)
 {
-	t_spot		*spot;
+	t_sphere	*sphere;
 
-	spot = (t_spot*)malloc(sizeof(t_spot));
-	if (spot == NULL)
-	{
-		s->error = 1;
+	sphere = (t_sphere*)malloc(sizeof(t_sphere));
+	ft_addlist(s, sphere, SPHERE);
+	if (s->error == 1)
 		return ;
-	}
-	spot->pos.x = 0;
-	spot->pos.y = 0;
-	spot->pos.z = 0;
-	spot->power = 1;
-	spot->next = s->spot;
-	s->spot = spot;
+	sphere->pos.x = 0;
+	sphere->pos.y = 0;
+	sphere->pos.z = 0;
+	sphere->r = 10;
+	sphere->color = WHITE;
 	while (ft_strlen(line) && *i == 1)
 	{
 		*i = get_next_line(fd, &line);
 		if (ft_strlen(line))
-			ft_spotdata(spot, line);
+			ft_spheredata(sphere, line);
 	}
 }

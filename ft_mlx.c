@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:10 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/06 15:14:12 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/15 16:36:58 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_mlx(t_scene *s)
 	e = (t_env*)malloc(sizeof(t_env));
 	e->s = s;
 	e->mlx = mlx_init();
-	e->win = mlx_new_window(e->mlx, s->cam->xres, s->cam->yres, "test");
+	e->win = mlx_new_window(e->mlx, s->cam->xres, s->cam->yres, s->name);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_key_hook(e->win, key_hook, e);
 	mlx_loop(e->mlx);

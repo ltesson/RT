@@ -6,30 +6,31 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 17:47:41 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/08 19:44:45 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/15 18:38:52 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include "libft/libft.h"
+#include <fcntl.h>
 
 void	ft_readitem(t_scene *s, int fd, char *line, int *i)
 {
 	if (ft_strcasecmp("spot", line) == 0)
 		ft_readspot(s, fd, line, i);
-	if (ft_strcasecmp("sphere", line) == 0)
+	else if (ft_strcasecmp("sphere", line) == 0)
 		ft_readsphere(s, fd, line, i);
-	if (ft_strcasecmp("plan", line) == 0)
+	else if (ft_strcasecmp("plan", line) == 0)
 		ft_readplan(s, fd, line, i);
-	if (ft_strcasecmp("cylindre", line) == 0)
+	else if (ft_strcasecmp("cylindre", line) == 0)
 		ft_readcylindre(s, fd, line, i);
-	if (ft_strcasecmp("cone", line) == 0)
+	else if (ft_strcasecmp("cone", line) == 0)
 		ft_readcone(s, fd, line, i);
-	if (ft_strcasecmp("camera", line) == 0)
+	else if (ft_strcasecmp("camera", line) == 0)
 		ft_readcamera(s, fd, line, i);
 }
 
-void	*ft_readfile(char *file, t_scene *s)
+void	ft_readfile(t_scene *s, char *file)
 {
 	int		fd;
 	int		i;

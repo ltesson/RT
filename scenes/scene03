@@ -1,18 +1,19 @@
 room with pillars
 
 CAMERA
+x:-200
 
 SPOT
 x:-200
 y:-300
 z:20
-power:0.9
+power:1
 
 SPOT
 x:-200
 y:300
 z:20
-power:0.9
+power:1
 
 PLAN
 a:0

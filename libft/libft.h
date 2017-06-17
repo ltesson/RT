@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 16:12:19 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 19:28:52 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/17 20:43:29 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int					ft_strncmp(char const *s1, char const *s2, size_t n);
 int					ft_atoi(char const *str);
 double				ft_atof(char const *str);
 double				ft_pow(double a, int b);
+int					ft_max(int a, int b);
+int					ft_min(int a, int b);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

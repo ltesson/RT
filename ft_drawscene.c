@@ -6,12 +6,12 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/15 17:42:45 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/17 20:52:48 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include <stdio.h>
+#include "libft/libft.h"
 
 t_rayon	ft_primray(t_camera *c, double i, double j)
 {
@@ -31,16 +31,14 @@ t_rayon	ft_primray(t_camera *c, double i, double j)
 
 void	ft_putcolor(t_env *e, int i, int j, t_rayon ray)
 {
-	if (ray.power > 1)
-		ray.power = 1;
-	if (ray.power < 0.1)
-		ray.power = 0.1;
+	if (ray.power < 0.15)
+		ray.power = 0.15;
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 2] =
-		ray.power * (ray.color / (256 * 256));
+		ft_min(255, ray.power * (ray.color / (256 * 256)));
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 1] =
-		ray.power * ((ray.color / 256) % 256);
+		ft_min(255, ray.power * ((ray.color / 256) % 256));
 	e->addr[j * 4 + i * 4 * e->s->cam->xres] =
-		ray.power * (ray.color % 256);
+		ft_min(255, ray.power * (ray.color % 256));
 }
 
 void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)

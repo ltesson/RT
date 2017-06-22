@@ -6,17 +6,17 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 17:59:26 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 20:47:49 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/22 10:49:38 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-#include <stdio.h>
+#include "libft/libft.h"
 
 void	ft_brillance(t_rayon *ray, double scal)
 {
 	if (ray->objet->type != PLAN && scal > 0.99)
-		ray->power *= (scal * 100 - 98);
+		ray->shine = fmax(ray->shine, (scal * 100) - 99);
 }
 
 void	ft_getlight(t_scene *s, t_rayon *ray)

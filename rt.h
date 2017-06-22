@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 13:12:12 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 19:10:24 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/22 10:38:11 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct			s_rayon
 	int					color;
 	double				power;
 	t_listobj			*objet;
+	double				shine;
 }						t_rayon;
 
 typedef struct			s_camera

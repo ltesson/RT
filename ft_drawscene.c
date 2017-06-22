@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 17:43:30 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/17 20:52:48 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/22 10:49:50 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,30 @@ t_rayon	ft_primray(t_camera *c, double i, double j)
 	ray.vec = ft_normalizevecteur(ray.vec);
 	ray.pos = c->pos;
 	ray.objet = NULL;
+	ray.shine = 0;
 	return (ray);
 }
 
 void	ft_putcolor(t_env *e, int i, int j, t_rayon ray)
 {
+	int		red;
+	int		green;
+	int		blue;
+
+	red = ray.color / (256 * 256);
+	green = (ray.color / 256) % 256;
+	blue = ray.color % 256;
 	if (ray.power < 0.15)
 		ray.power = 0.15;
+	red += (255 - red) * ray.shine;
+	green += (255 - green) * ray.shine;
+	blue += (255 - blue) * ray.shine;
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 2] =
-		ft_min(255, ray.power * (ray.color / (256 * 256)));
+		ft_min(255, ray.power * red);
 	e->addr[j * 4 + i * 4 * e->s->cam->xres + 1] =
-		ft_min(255, ray.power * ((ray.color / 256) % 256));
+		ft_min(255, ray.power * green);
 	e->addr[j * 4 + i * 4 * e->s->cam->xres] =
-		ft_min(255, ray.power * (ray.color % 256));
+		ft_min(255, ray.power * blue);
 }
 
 void	ft_lancerayon(t_scene *s, t_env *e, int i, int j)

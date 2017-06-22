@@ -6,13 +6,14 @@
 #    By: ltesson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 15:46:25 by ltesson           #+#    #+#              #
-#    Updated: 2017/06/17 20:42:53 by ltesson          ###   ########.fr        #
+#    Updated: 2017/06/22 09:42:56 by ltesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRC = ft_atoi.c \
+	ft_hexatoi.c \
 	ft_atof.c \
 	ft_bzero.c \
 	ft_isalnum.c \

@@ -6,7 +6,7 @@
 /*   By: ltesson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/15 17:11:00 by ltesson           #+#    #+#             */
-/*   Updated: 2017/06/15 17:26:00 by ltesson          ###   ########.fr       */
+/*   Updated: 2017/06/22 09:50:12 by ltesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 int		ft_readcolor(char *color)
 {
+	if (ft_strncasecmp(color, "0x", 2) == 0)
+		return (ft_min(ft_hexatoi(color + 2), WHITE));
 	if (ft_isdigit(*color) && ft_atoi(color) <= 16777215)
-		return (ft_atoi(color));
+		return (ft_min(ft_atoi(color), WHITE));
 	if (ft_strcasecmp(color, "RED") == 0)
 		return (RED);
 	if (ft_strcasecmp(color, "BLUE") == 0)

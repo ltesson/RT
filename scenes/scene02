@@ -10,18 +10,18 @@ x:0
 y:0
 z:0
 r:40
-color:BLUE
+color:0XFFFFFF
 
 SPHERE
 x:-10
 y:20
 z:20
 r:29
-color:RED
+color:0xFF0000
 
 SPHERE
 x:-10
 y:-20
 z:20
 r:31
-color:GREEN
+color:0xFF4040
